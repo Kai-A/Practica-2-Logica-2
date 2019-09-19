@@ -28,6 +28,17 @@ public class Matriz {
             }
         }
     }
+    public void sumarDatos(){
+        int c=0;
+        for(int i=0; i<matriz.length; i++){
+            for(int j=0; j<matriz.length; j++) {
+               c=matriz[i][j]+c;
+            }
+        }
+        System.out.println(c);
+    }
+
+    
 
 
 }
