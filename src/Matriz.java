@@ -38,7 +38,51 @@ public class Matriz {
         System.out.println(c);
     }
 
-    
+    public void pintaMayor(){
+        int c=0;
+        for(int i=0; i<matriz.length; i++){
+            for(int j=0; j<matriz.length; j++) {
+                if(matriz[i][j]>c){
+                    c=matriz[i][j];
+                }
+            }
+        }
+        System.out.println(c);
+    }
 
+    public void pintaMenor(){
+        int c=1000;
+        for(int i=0; i<matriz.length; i++){
+            for(int j=0; j<matriz.length; j++) {
+                if(matriz[i][j]<c){
+                    c=matriz[i][j];
+                }
+            }
+        }
+        System.out.println(c);
+    }
+
+    public void pintaMayorFila(){
+        for(int i=0; i<matriz.length; i++){
+            int c=0;
+            for(int j=0; j<matriz.length; j++) {
+                if(matriz[i][j]>c){
+                    c=matriz[i][j];
+                }
+            }
+            System.out.println(c);
+        }
+    }
+    public void pintaMayorColumna(){
+        for(int i=0; i<matriz.length; i++){
+            int c=0;
+            for(int j=0; j<matriz.length; j++) {
+                if(matriz[j][i]>c){
+                    c=matriz[i][j];
+                }
+            }
+            System.out.println(c);
+        }
+    }
 
 }
