@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.util.Random;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -16,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  * @author kaiki
  */
 public class Matriz extends javax.swing.JFrame {
-
+    private static JTextField [][] matriz_nueva;
     /**
      * Creates new form Matriz
      */
@@ -35,8 +36,6 @@ public class Matriz extends javax.swing.JFrame {
 
         btnAceptar = new javax.swing.JButton();
         txtN = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblMatriz = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         txtSumaTotal = new javax.swing.JLabel();
@@ -67,16 +66,6 @@ public class Matriz extends javax.swing.JFrame {
             }
         });
 
-        tblMatriz.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(tblMatriz);
-
         jLabel1.setText("Tamaño de la matriz");
 
         jButton1.setText("Sumar toda la matriz");
@@ -96,6 +85,11 @@ public class Matriz extends javax.swing.JFrame {
         });
 
         btnMenor.setText("Pintar menor");
+        btnMenor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenorActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Pinta Mayor por columna");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -145,24 +139,26 @@ public class Matriz extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton12)
-                                    .addComponent(jButton14)
-                                    .addComponent(jButton16))
-                                .addGap(86, 177, Short.MAX_VALUE))
+                                .addComponent(jButton8)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton9)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton10)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton11)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton16))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton8)
-                                    .addComponent(jButton13)
-                                    .addComponent(jButton11)
-                                    .addComponent(jButton10)
-                                    .addComponent(jButton9)
-                                    .addComponent(jButton15))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(jButton13)
+                                .addGap(26, 26, 26)
+                                .addComponent(jButton15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton14)))
+                        .addGap(0, 36, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -217,33 +213,26 @@ public class Matriz extends javax.swing.JFrame {
                     .addComponent(jButton5)
                     .addComponent(jButton6)
                     .addComponent(jButton7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton8)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton9)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton10)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton11)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton13)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton15)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton12)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton14)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton16))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton8)
+                    .addComponent(jButton9)
+                    .addComponent(jButton10)
+                    .addComponent(jButton11)
+                    .addComponent(jButton16))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton13)
+                    .addComponent(jButton15)
+                    .addComponent(jButton12)
+                    .addComponent(jButton14))
+                .addContainerGap(375, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
         int n=0;
@@ -256,11 +245,13 @@ public class Matriz extends javax.swing.JFrame {
         if(n<8 || n>16){
             JOptionPane.showMessageDialog(null,"El tamaño minimo de la matriz es 8 y el tamaño maximo es 16");
             return;
-        }      
+        } 
         Llenar(n);
-        mostrarMatriz(matriz,n);
+        mostrarMatriz(n);
+
     }//GEN-LAST:event_btnAceptarActionPerformed
 
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         int c=0;
@@ -273,7 +264,7 @@ public class Matriz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnMayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMayorActionPerformed
-        // TODO add your handling code here:
+  
         int c = 0;
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
@@ -286,7 +277,7 @@ public class Matriz extends javax.swing.JFrame {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
                 if (matriz[i][j] == c) {
-                    System.out.println(c);
+                    matriz_nueva[i][j].setBackground(Color.red);
                 }
             }
         }
@@ -315,6 +306,26 @@ public class Matriz extends javax.swing.JFrame {
             System.out.println(c);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnMenorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenorActionPerformed
+
+        int menor = 1000;
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                if (matriz[i][j] < menor) {
+                    menor = matriz[i][j];
+                }
+            }
+        }
+        
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                if (matriz[i][j] == menor) {
+                    matriz_nueva[i][j].setBackground(Color.blue);
+                }
+            }
+        }
+    }//GEN-LAST:event_btnMenorActionPerformed
 
     
     /**
@@ -356,8 +367,6 @@ public class Matriz extends javax.swing.JFrame {
     
     public void Llenar(int n){
         matriz=new int[n][n];
-        tblMatriz.setOpaque(true);
-        tblMatriz.setGridColor(Color.RED);
         Random aleatorio = new Random();
         for(int i=0; i<matriz.length; i++){
             for(int j=0; j<matriz.length; j++) {
@@ -365,16 +374,34 @@ public class Matriz extends javax.swing.JFrame {
             }
         }
     }
-    
-public void mostrarMatriz(int matriz[][],int n){
-    DefaultTableModel model =(DefaultTableModel)tblMatriz.getModel();
-    model.setRowCount(n);
-    model.setColumnCount(n);
-    for(int i=0;i<n;i++){
-        for(int j=0; j<n; j++){
-            tblMatriz.setValueAt(matriz[i][j], i, j);
+   
+public void mostrarMatriz(int n){//Se invoca el metodo de mostrar matriz, desde el boton generar matriz, enviandole el tamaño "n" que es agarrado de un textfield
+        int posh = 300;//posicion
+        int posv =30;
+        int fil=0;//contadores
+        int col=0;
+        if(matriz_nueva!=null){//analiza si ya hay una matriz creada
+             for(col=0;col<n;col++){
+                for(fil=0;fil<n;fil++){//ciclos para recorrer la matriz
+                    remove(matriz_nueva[col][fil]);//borra la matriz
+                }
+            }
         }
-    }
+        matriz_nueva = new JTextField[n][n];//Se crea el textfield 
+        for(col=0;col<n;col++){
+            for(fil=0;fil<n;fil++){//ciclos para mostrar la matriz
+                matriz_nueva[col][fil]= new JTextField();//se crea el textfiel en pantalla
+                matriz_nueva[col][fil].setBounds(posv,posh,50,50);//acá se le dan las caractetisticas a el textfield, posicion, y tamaño.
+                
+                matriz_nueva[col][fil].setText(Integer.toString(matriz[col][fil]));//se le asigna el texto de una matriz estatica que lleno por allá arriba con u metodo
+                add(matriz_nueva[col][fil]);//se añade al panel
+                posv+=80;//para que el proximo textfield qude al lado
+                
+            }
+            
+            posh+=30;//para que quede abajo
+            posv =30;//para que vuelva desde la izquierda y siga pintando los textfields
+        }
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
@@ -397,8 +424,6 @@ public void mostrarMatriz(int matriz[][],int n){
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblMatriz;
     private javax.swing.JTextField txtN;
     private javax.swing.JLabel txtSumaTotal;
     // End of variables declaration//GEN-END:variables
